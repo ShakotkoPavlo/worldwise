@@ -1,9 +1,13 @@
+import { useCities } from "../context/CitiesContext";
 import CityItem from "./CityItem";
-import styles from "./CityList.module.css";
 import Message from "./Message";
 import Spinner from "./Spinner";
 
-function CityList({ cities, loading }) {
+import styles from "./CityList.module.css";
+
+function CityList() {
+  const { cities, loading } = useCities();
+
   if (loading) return <Spinner />;
 
   if (!cities.length) return <Message message="No cities found. Add some!" />;
